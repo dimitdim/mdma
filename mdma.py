@@ -14,6 +14,7 @@ v = linspace(0, 5, 101)
 i = linspace(0, 5, 101)
 
 plt.ion()
+lline = plt.plot(v,i,'g--')[0]
 graph = plt.plot(v,i)[0]
 point = plt.plot(v[0],i[0],'ob')[0]
 xlabl = plt.xlabel('$V_D$',fontsize=24)
