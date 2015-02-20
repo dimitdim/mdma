@@ -10,17 +10,19 @@ def linspace(initial, final, n = 100):
         return []
 
 s = smu.smu()
+s.set_current(2, 0)
 v = linspace(0, 5, 101)
-i = v
+i = linspace(0, 5, 101)
 
 plt.ion()
-graph = plt.plot(v,v)[0]
+graph = plt.plot(v,i)[0]
 
 while True:
     for n in range(len(v)):
         s.set_voltage(1, v[n])
         s.autorange(1)
-        i[n]=s.get_current(1)
+        i[n]=1000*s.get_current(1)
+        print "Vg: "+str(s.get_voltage(2))+'; Vd: '+str(v[n])+'; Id:  '+str(i[n])
         graph.set_ydata(i)
         plt.draw()
 
